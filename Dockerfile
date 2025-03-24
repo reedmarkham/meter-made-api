@@ -1,12 +1,22 @@
-FROM python:3.9
+# Start from a base image
+FROM python:3.9-slim
 
-COPY requirements.txt .
-RUN pip install --no-cache-dir --upgrade -r requirements.txt
+# Set the working directory
+WORKDIR /app
 
-COPY src .
-WORKDIR /src
+# Copy the requirements file into the container
+COPY requirements.txt requirements.txt
 
+# Install the required packages
+RUN pip install --upgrade pip
+RUN pip install -r requirements.txt
+
+# Copy the application code into the container
+COPY ["model.pkl", "main.py", "./"] .
+
+# Expose the app port
 EXPOSE 8080
 ENV PORT 8080
 
+# Run command
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8080"]
