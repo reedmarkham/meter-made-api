@@ -11,7 +11,9 @@ COPY . ./
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
-ENV PORT 1234
+# Ensure Cloud Run uses the correct port
+ENV PORT 8080
 EXPOSE 8080
 
+# Run Uvicorn on the correct port
 CMD exec uvicorn main:app --host 0.0.0.0 --port ${PORT}
