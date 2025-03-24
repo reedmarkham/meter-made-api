@@ -21,7 +21,7 @@ class ParkingSpot(BaseModel):
 @app.post("/predict")
 def predict(data: ParkingSpot):
 
-    to_predict = data.dict()
+    to_predict = data.model_dump()
     to_predict['d'] = pd.to_datetime(to_predict['d']).toordinal()
     to_predict['c'] = pd.to_datetime(to_predict['d']).date().day
     to_predict['w'] = pd.to_datetime(to_predict['d']).date().isoweekday()
