@@ -14,5 +14,7 @@ RUN pip install -r requirements.txt
 # Copy the application code into the container
 COPY ["model.pkl", "main.py", "./"] .
 
+ENV PORT 8080
+
 # Run command
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "${PORT}"]
