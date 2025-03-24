@@ -1,0 +1,8 @@
+services:
+  fastapi-service:
+    build: .
+    image: fastapi-service:dev
+    ports:
+    - "80:80"
+    environment:
+      - DEBUG=true
