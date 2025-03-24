@@ -30,4 +30,4 @@ def predict(data: ParkingSpot):
 
     prediction = model.predict_proba(to_predict)
 
-    return {"probabilities": prediction[0], "ticketed": np.argmax(prediction[0])}
+    return {"probabilities": prediction.tolist()[0], "ticketed": int(np.argmax(prediction[0]))}
