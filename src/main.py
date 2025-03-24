@@ -9,7 +9,7 @@ import lightgbm as lgb
 
 app = FastAPI()
 
-with open('model.pkl', 'rb') as file:
+with open('/model.pkl', 'rb') as file:
     model = pickle.load(file)
 
 class ParkingSpot(BaseModel):
