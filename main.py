@@ -22,9 +22,9 @@ class ParkingSpot(BaseModel):
 def predict(data: ParkingSpot):
 
     to_predict = data.model_dump()
-    to_predict['d'] = pd.to_datetime(to_predict['d']).toordinal()
     to_predict['c'] = pd.to_datetime(to_predict['d']).date().day
     to_predict['w'] = pd.to_datetime(to_predict['d']).date().isoweekday()
+    to_predict['d'] = pd.to_datetime(to_predict['d']).toordinal()
     to_predict = {k: [to_predict[k]] for k in ['d', 'c', 'w', 'h', 'x', 'y']}
     to_predict = pd.DataFrame(to_predict)
 
