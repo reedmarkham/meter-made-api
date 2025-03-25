@@ -3,9 +3,9 @@ import pickle
 import pandas as pd
 import numpy as np
 from pydantic import BaseModel
-import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+import uvicorn
 import lightgbm
 
 app = FastAPI()
