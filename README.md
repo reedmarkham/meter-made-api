@@ -4,7 +4,7 @@ This FastAPI app serves a machine learning model (`model.pkl`) for predicting ex
 
 ## Deployment
 
-The app is deployed to a server, and the model is loaded from Google Storage during startup. The model is used to make predictions on parking ticket data.
+The app is deployed to **Cloud Run** using **Cloud Build** with a trigger connected to this repository. Changes pushed to the repository automatically trigger a build and deployment to Cloud Run.
 
 ### Model Training and Upload
 
